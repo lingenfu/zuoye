@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站考试</title>
+    <style>
+        .nav2 {
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .nav {
+            margin: 50px auto;
+            text-align: center;
+
+        }
+
+        .nav a {
+            display: inline-block;
+            width: 200px;
+            height: 250px;
+            background-color: pink;
+            text-align: center;
+            line-height: 350px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 30px;
+            margin: auto;
+
+
+        }
+
+        .nav .bg0 {
+            background: url(imgs/hengfu.png) no-repeat;
+        }
+
+        .nav .bg1 {
+            background: url(imgs/book.png) no-repeat;
+
+        }
+
+        .nav .bg2 {
+            background: url(imgs/movie.png) no-repeat;
+        }
+
+        .nav .bg3 {
+            background: url(imgs/food.png) no-repeat;
+        }
+
+        .nav .bg4 {
+            background: url(imgs/friends.png) no-repeat;
+        }
+
+        .bi {
+            text-align: center;
+            margin: auto;
+            display: inline-block;
+            width: 500px;
+            height: 400px;
+
+        }
+
+        .bt {
+            text-align: center;
+            margin: auto;
+            display: inline-block;
+            width: 500px;
+            height: 350px;
+        }
+        .bzi {
+            text-align: center;
+            margin: auto;
+            display: inline-block;
+            width: 280px;
+            height: 416px;
+        }
+        .bz {
+            text-align: center;
+            margin: auto;
+            display: inline-block;
+            width: 520px;
+            height: 200px;
+            background-color:slategrey;
+            color: #fff;
+        }
+        .bz2 {
+            text-align: center;
+            margin: auto;
+            display: inline-block;
+            width: 520px;
+            height: 200px;
+            color: black;
+
+
+        }
+        #box {
+            width: 480px;
+            height: 300px;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #box ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: absolute;
+            width: 3000px;
+        }
+
+        #box ul li {
+            overflow: hidden;
+            float: left;
+        }
+
+        #box ol {
+            list-style: none;
+            position: absolute;
+            bottom: 8px;
+            left: 280px;
+        }
+
+        #box ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #ccc; 
+            margin-right: 10px;
+        }
+
+        #left, #right {
+            width: 50px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            font-size: 30px;
+            line-height: 80px;
+            text-align: center;
+            display: none;
+            position: absolute;
+            top: 110px;
+        }
+
+        #left {
+            left: 0;
+        }
+
+        #right {
+            right: 0;
+        }
+        video{
+            width: 1500px;
+            height: 500px;
+        }
+        #a{
+            font-size: 50px;
+        }
+        
+    </style>
+</head>
+
+<body background="images\QQ图片20201123092313.jpg">
+    <div class="nav2" role="banner">
+        <header role="banner">
+            <nav role="navigation"><img src="images\zy2.jpg" height="400" alt=""></nav>
+        </header>
+    </div>
+    <div class="nav">
+        <span class="bzi">
+
+            <img src="images\zy1.jpg" width="280px" height="416" alt="照片">
+
+        </span>
+        <span class="bz">
+            <span>
+                
+                这是我，林根富，通信1901班
+                </br>来自福建省，是一个性格开朗的年轻人
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                
+
+            </span>
+            <span class="bz2">
+                <p>身份认证</p>
+                <p>我学号前一位：201916180113蒋翔海</p>
+                <p style="color: blue;">本人：201916180114林根富</p>
+                <p>我学号后一位：201916180115程金阳</p>
+                <p>&nbsp;</p>
+
+                
+
+            </span>
+        </span>
+
+    </div>
+    <div id="box" class="all">
+        <div class="screen nav">
+            <ul>
+                <li><img src="images\zy7.jpg" width="480px" height="300px" alt=""></li>
+                <li><img src="images\zy8.jpeg" width="480px" height="300px" alt=""></li>
+                <li><img src="images\zy9.jpeg" width="480px" height="300px" alt=""></li>
+                <li><img src="images\zy10.jpeg" width="480px" height="300px" alt=""></li>
+                <li><img src="images\zy11.jpg" width="480px" height="300px" alt=""></li>
+            </ul>
+            <ol></ol>
+        </div>
+        <div>
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+    </div>
+
+    <script>
+        // 定时器间隔时间
+        var interval = 3000;
+
+        var box = document.getElementById('box');
+        var screen = box.children[0];
+        var ul = screen.children[0];
+        var ol = screen.children[1];
+
+        var arrLeft = document.getElementById('left');
+        var arrRight = document.getElementById('right');
+
+        // 获取图片的宽度
+        var imgWidth = box.offsetWidth;
+
+        function setInnerText(element, content) {
+            if (typeof element.innerText === 'string')
+                element.innerText = content;
+            else
+                element.textContent = content;
+        }
+
+        function animate(element, target, callback) {
+            // 判断之前是否开启了定时器
+            if (element.timerId)
+                clearInterval(element.timerId);
+
+            // 让每个执行动画的元素记录自己的定时器
+            element.timerId = setInterval(function () {
+                // 当前坐标
+                var current = element.offsetLeft;
+                var step = 10;
+
+                // 当当前位置 > 目标位置时，step 应该是负数
+                if (current > target)
+                    step = - Math.abs(step);
+
+                // 如果当前位置距离目标位置小于 step ，就直接达到目标位置
+                if (Math.abs(current - target) <= Math.abs(step)) {
+                    element.style.left = target + 'px';
+                    clearInterval(element.timerId);
+                    if (callback)
+                        callback();
+                    return;
+                }
+                current += step;
+                element.style.left = current + 'px';
+            }, 20);
+        }
+
+        // 动态生成序号
+        var count = ul.children.length;
+        for (var i = 0; i < count; ++i) {
+            var li = document.createElement('li');
+            setInnerText(li, i + 1);
+            ol.appendChild(li);
+
+            // li 记录它自己的索引
+            li.index = i;
+
+            // 点击序号切换图片
+            li.onclick = liClick;
+        }
+
+        // 默认第一个序号高亮显示
+        ol.children[0].style.backgroundColor = 'dodgerblue';
+
+        // 鼠标进入时显示箭头
+        box.onmouseenter = function () {
+            arrLeft.style.display = 'block';
+            arrRight.style.display = 'block';
+            // 停止定时器
+            clearInterval(timerId);
+        }
+        box.onmouseleave = function () {
+            arrLeft.style.display = "none";
+            arrRight.style.display = "none";
+            // 开启定时器
+            timerId = setInterval(function () {
+                arrRight.click();
+            }, interval);
+        }
+
+        // 点击序号动画切换图片
+        function liClick() {
+            animate(ul, -this.index * imgWidth);
+
+            // 让当前li序号高亮显示，其它序号取消高亮显示
+            for (i = 0; i < count; ++i)
+                ol.children[i].style.backgroundColor = '';
+            this.style.backgroundColor = 'dodgerblue';
+
+            // 点击序号时，记录下其index
+            index = this.index;
+        }
+
+        // 克隆第一个 li ，并添加到 ul 的最后
+        var cloneLi = ul.children[0].cloneNode(true);
+        ul.appendChild(cloneLi);
+
+        // 点击箭头显示 上一张 / 下一张
+        // 默认时，第一张图片的索引
+        var index = 0;
+        arrRight.onclick = function () {
+            if (index === count) {
+                index = 0;
+                ul.style.left = '0px';
+            }
+
+            ++index;
+            if (index < count) {
+                // 让对应序号的 li 被点击
+                ol.children[index].click();
+            } else {
+                // 以动画形式切换到克隆出来的第一张
+                animate(ul, -index * imgWidth);
+                // 取消所有序号的高亮
+                for (i = 0; i < count; ++i)
+                    ol.children[i].style.backgroundColor = '';
+                ol.children[0].style.backgroundColor = 'dodgerblue';
+            }
+        }
+
+        arrLeft.onclick = function () {
+            // 如果 index 为第一张，直接跳转到克隆出的最后一张
+            if (index === 0) {
+                index = count;
+                ul.style.left = -index * imgWidth + 'px';
+            }
+            --index;
+            // if (index >= 0) {
+                ol.children[index].click();
+            // }
+        }
+
+        // 自动切换图片
+        var timerId = setInterval(function () {
+            arrRight.click();
+        }, interval);
+    </script>
+    <div class="nav">
+        <h2>美食介绍</h2>
+        <h3>黄焖鸡</h3>
+        <span class="bi">
+            <img src="images\zy4.jpeg" width="500px" alt="黄焖鸡">
+        </span>
+        <span class="bt">
+            </br>黄焖鸡米饭又叫香鸡煲，浓汁鸡煲饭。起源于济南名店“吉玲园”。是山东济南特色传统名菜之一。
+            </br>1927年,济南府鲁菜名店"吉玲园"由于名厨云集,佳肴迭出而红极一时.各商富贾,达官显贵纷至沓来.与当时的"汇泉楼"聚丰德"并称省城三大名店.其招牌菜"百草黄焖鸡”更是深受时任山东省主席韩复榘的喜爱.他曾为此赏银三十块,并称赞说:"此鸡匠心独运,是上品之上,当为一绝”。
+            </br>属于鲁菜系家常菜品，主要食材是鸡腿肉，配以青椒、香菇等焖制而成，味道美妙，具有肉质鲜美嫩滑的特点。其中以上吉铺黄焖鸡米饭和八珍黄焖鸡最为出色，入口爽滑弹牙，汤汁鲜美。
+            </br>黄焖鸡有三绝：
+            </br>一品汤，汤色红亮、口感滋糯、老道醇厚、油而不腻.、回味无穷；
+            </br>二品肉，成品靓丽、肉质滑嫩；
+            </br>三品米，香气浓郁、劲道有韧劲。
+            <br><a href="https://baike.sogou.com/v189647.htm?fromTitle=%E9%BB%84%E7%84%96%E9%B8%A1">黄焖鸡的链接</a>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+        </span>
+    </div>
+    <div class="nav">
+        <h3>螺蛳粉</h3>
+        <span class="bi">
+            <img src="images\zy5.jpeg" width="500px" alt="螺蛳粉">
+        </span>
+        <span class="bt">
+            </br>螺蛳粉是广西壮族自治区柳州市的小吃米粉，
+            </br>具有辣、爽、鲜、酸、烫的独特风味。是柳州最具地方特色的名小吃。
+            </br>汤料由螺蛳、山奈、八角、肉桂、丁香、多种辣椒、等天然香料和味素配制而成。
+            <br><a href="https://mp.weixin.qq.com/s?src=11&timestamp=1606093749&ver=2723&signature=4SGALdWDS55xwr1FY2GLqDsYGEiS43YKo-o3uUShPQyFqtgTbqjXQ30PEyQzo00*eIBCDkIM1KSQmc4cozgSwHb81WpkV0emXB-w-nhO8pGPYOdy3hQy*FMQoWrqc3qK&new=1">螺蛳粉的链接</a>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+        </span>
+
+    </div>
+    <div class="nav">
+        <h2>碳烤鱼</h2>
+        <span class="bi">
+            <img src="images\zy6.jpg" width="500px" alt="碳烤鱼">
+
+        </span>
+        <span class="bt">
+            <p>&nbsp;</p>
+            </br>烤鱼（Grilled fish）。
+            </br>是重庆万州一道特色美食，发源于重庆巫溪县，口味麻辣。
+            </br>烤鱼的制作原料主要有鱼、蘑菇、番茄等。
+            </br>它是鱼类经过烤制之后进行烹饪的一种方法，
+            </br>这种烹调方式实现了“一烤二炖”。
+            </br>在流传过程中，烤鱼融合腌、烤、炖三种烹饪工艺技术，
+            </br>充分借鉴传统渝菜及重庆火锅用料特点，是口味奇绝、营养丰富的风味小吃。
+            <br><a href="https://baike.sogou.com/v71933984.htm?fromTitle=碳烤鱼">碳烤鱼的链接</a>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+
+        </span>
+
+
+    </div>
+    <div id="a">黄焖鸡做法视频</div>
+    <video controls>
+        <source src="images\QQ视频20201123091408.mp4" type="video/mp4">
+   </video>
+
+</body>
+
+</html>
